@@ -47,3 +47,4 @@ class PokemonEvolutions extends StatelessWidget {
       ),
     );
   }
+}
