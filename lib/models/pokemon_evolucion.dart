@@ -1,13 +1,6 @@
-
-import 'package:pokedex/models/pokemon_about_species_model.dart';
-
+import 'package:pokedex/models/pokemon_evolucion_detail.dart';
 
 class Pokemonevolucion{
-  
-  PokeAboutSpecies pokeSpecies;
-  List<Pokemonevolucion>pokeforms;
-  Pokemonevolucion({
-    this.pokeforms,
-    this.pokeSpecies
-  });
+  EspeciesEvo especiesEvo;
+  Pokemonevolucion({this.especiesEvo })
 }

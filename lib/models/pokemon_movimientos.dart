@@ -1,15 +1,3 @@
-class PokeMoveList {
-  List<AboutMmoves> items = new List();
-  PokeMoveList();
-  PokeMoveList.fromJsonList(List<dynamic> jsonList) {
-    if (jsonList == null) return;
-    for (var i = 0; i < jsonList.length; i++) {
-      final pokemon = AboutMmoves.fromJson(jsonList[i]);
-      items.add(pokemon);
-    }
-  }
-}
-
 class AboutMmoves {
   List<Moves> moves;
   String name;

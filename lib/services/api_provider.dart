@@ -3,13 +3,12 @@ import 'package:pokedex/models/pokemon_about_detail_model.dart';
 import 'package:pokedex/models/pokemon_about_location_model.dart';
 import 'package:pokedex/models/pokemon_about_model.dart';
 import 'package:pokedex/models/pokemon_about_species_model.dart';
-import 'package:pokedex/models/pokemon_evo.dart';
-import 'package:pokedex/models/pokemon_evolucion.dart';
 import 'package:pokedex/models/pokemon_list_model.dart';
+import 'package:pokedex/models/pokemon_movimientos.dart';
 import 'package:pokedex/models/pokemon_stats_detail_model.dart';
 import 'package:pokedex/models/pokemon_stats_model.dart';
 import 'package:pokedex/models/pokemon_stats_species_model.dart';
-import 'package:pokedex/screens/poke_detail/components/pokemon_moves.dart';
+
 
 class ApiProvider{
   Dio dio = Dio();
@@ -49,40 +48,12 @@ class ApiProvider{
     return pokeAbout;
   }
 
-  Future<Pokemonevolucion> obtenerInfoevopokemon(String nombrePoke) async{
-    var pokeevo = Pokemonevolucion();
+   Future<AboutMmoves> obtenerInfomovespokemon(String nombrePoke) async{
+    var pokemoves = AboutMmoves();
     try {
-      Response respA = await dio.get('https://pokeapi.co/api/v2/pokemon/${nombrePoke}');
-      final pokeforms = Pokemonevolucion.fromJson(respA.data);
-      
-      Response respB = await dio.get('https://pokeapi.co/api/v2/pokemon-species/${pokeDetail.id}');
-      final pokeSpecies = PokeAboutSpecies.fromJson(respB.data);
-
-      pokeevo = Pokemonevolucion(
-        pokeforms: pokeforms,
-        pokeSpecies: pokeSpecies,
-      );
-
-    } catch (e) {
-
-    }
-
-    return pokeevo;
-  }
-
-   Future<PokemonMovesModel> obtenerInfomovespokemon(String nombrePoke) async{
-    var pokemoves = PokemonMovesModel();
-    try {
-      Response respA = await dio.get('https://pokeapi.co/api/v2/pokemon/${nombrePoke}');
-      final pokeforms = Forms.fromJson(respA.data);
-      
-      Response respB = await dio.get('https://pokeapi.co/api/v2/pokemon-species/${pokeDetail.id}');
-      final pokeSpecies = PokeAboutSpecies.fromJson(respB.data);
-
-      pokemoves = PokemonMovesModel(
-        pokeMovesforms: pokeforms,
-        pokeStatSpecies: pokeSpecies,
-      );
+      Response respA = await dio.get('https://pokeapi.co/api/v2/pokemon/$nombrePoke');
+      final pokeforms = AboutMmoves.fromJson(respA.data);
+      pokemoves= pokeforms;
 
     } catch (e) {
 
