@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/helpers/customWidget.dart';
 
 
-
 class PokemonEvolutions extends StatelessWidget {
+  Animation<double> get controller => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
